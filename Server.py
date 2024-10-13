@@ -13,5 +13,9 @@ def main():
         print(f"Could not create or bind socket. Error:{err}")
         return
     print("listening for messages...\n")
+    client_message, client_address=udp_socket.recvfrom(2000)
+    client_message=client_message.decode().strip()
+    print(f"Client has send this message{client_message} from {client_address[0]}({client_address[1]})")
 
-    
+if __name__ == "__main__":
+    main()    
